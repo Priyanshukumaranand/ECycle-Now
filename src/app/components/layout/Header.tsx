@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 const navigationItems = [
     { name: "Home", href: "/" },
@@ -53,7 +54,7 @@ const Header = () => {
                         </DisclosureButton>
                     </div>
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <a href="/">
+                        <Link href="/">
                             <div className="flex shrink-0 items-center">
                                 <img
                                     alt="Your Company"
@@ -62,13 +63,13 @@ const Header = () => {
                                 />
                                 <p className="text-white text-3xl ml-5">ECycleNow</p>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-2">
                                 {(auth ? authNavigationItems : navigationItems).map((item) => (
-                                    <a
+                                    <Link
                                         key={item.name}
                                         href={item.href}
                                         onClick={() => setActiveTab(item.href)}
@@ -80,7 +81,7 @@ const Header = () => {
                                         )}
                                     >
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -99,7 +100,7 @@ const Header = () => {
                             <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 transition">
                                 <MenuItem>
                                     {({ active }) => (
-                                        <a
+                                        <Link
                                             href="#"
                                             className={classNames(
                                                 active ? "bg-gray-100" : "",
@@ -107,12 +108,12 @@ const Header = () => {
                                             )}
                                         >
                                             Dashboard
-                                        </a>
+                                        </Link>
                                     )}
                                 </MenuItem>
                                 <MenuItem>
                                     {({ active }) => (
-                                        <a
+                                        <Link
                                             href="#"
                                             className={classNames(
                                                 active ? "bg-gray-100" : "",
@@ -120,7 +121,7 @@ const Header = () => {
                                             )}
                                         >
                                             Logout
-                                        </a>
+                                        </Link>
                                     )}
                                 </MenuItem>
                             </MenuItems>
